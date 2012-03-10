@@ -1,0 +1,9 @@
+user            = mailsql
+password        = secret
+dbname          = mailsql
+table           = users
+select_field    = 'virtual:'
+where_field     = substring_index(email,'@',-1)
+additional_conditions = and postfix like 'y'
+#hosts           = unix:/var/run/mysqld/mysqld.sock
+hosts           = mysql.adevel.com

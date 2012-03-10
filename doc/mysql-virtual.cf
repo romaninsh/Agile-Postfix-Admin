@@ -1,0 +1,9 @@
+user            = mailsql
+password        = secret
+dbname          = mailsql
+table           = users
+select_field    = if(forward='Y',forward_to,concat_ws(',',email,cc_to))
+where_field     = email
+additional_conditions = and (postfix like 'y')
+#hosts           = unix:/var/run/mysqld/mysqld.sock
+hosts           = mysql.adevel.com

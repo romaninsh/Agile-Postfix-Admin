@@ -1,0 +1,9 @@
+user            = mailsql
+password        = secret
+dbname          = mailsql
+table           = users
+select_field    = concat(substring_index(email,'@',-1),'/',substring_index(email,'@',1),'/.maildir/')
+where_field     = email
+additional_conditions = and (postfix = 'y' or postfix='Y')
+#hosts           = unix:/var/run/mysqld/mysqld.sock
+hosts           = mysql.adevel.com

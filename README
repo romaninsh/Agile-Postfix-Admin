@@ -1,0 +1,32 @@
+Postfix Virtual Mailserver uses database to read information about users and domains. Typically MySQL would have
+four tables. However with some clever selects the same information can be stored in a single table. 
+
+This project contains the Postfix files for configuring of your mailserver to use a single-mysql table and web
+interface written on agile toolkit which allows three level access - for regular users, domain admins and superadmins.
+
+
+INSTALLATION:
+
+1. Follow Postgres Virtual email hosting howto. 
+2. Create MySQL user and database
+3. Use doc/*.cf files as postfix configuration. Amend them to match mysql information
+4. Place current directory into webroot
+5. Copy config-distrib.php into config.php and edit your database settings
+6. Import doc/mailsql.sql into your database
+
+u: admin@example.org
+p: secret
+
+Add users for other domains
+
+
+ENHANCING:
+
+Fork this project on github: https://github.com/agiletech/Agile-Postfix-Admin
+
+edit index.php file. Follow agile toolkit learning guide to extend. 
+
+
+SECURING:
+
+edit config.php file to set web_output=null and log_output=full to avoid errors being displayed to the user
